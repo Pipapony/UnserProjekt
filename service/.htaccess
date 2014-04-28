@@ -1,0 +1,16 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^events$ RequestHandler.php?command=GetEvent
+
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^events/(.+)$ RequestHandler.php?command=GetEvent&id=$1
+
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^events$ RequestHandler.php?command=CreateEvent
+
+RewriteCond %{REQUEST_METHOD} DELETE
+RewriteRule ^events/(.+)$ RequestHandler.php?command=DeleteEvent&id=$1
+
+RewriteCond %{REQUEST_METHOD} PUT
+RewriteRule ^events/(.+)$ RequestHandler.php?command=UpdateEvent&id=$1
